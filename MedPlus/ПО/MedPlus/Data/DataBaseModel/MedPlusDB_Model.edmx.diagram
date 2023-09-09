@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="68c31f02a5e944a5a059cb40b4d6bf1b" Name="Diagram1" ZoomLevel="45">
+        <EntityTypeShape EntityType="MedPlusDB_Model.ChangesOfPaymentType" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedPlusDB_Model.Death" Width="1.5" PointX="8.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedPlusDB_Model.MedCard" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedPlusDB_Model.PatientMovement" Width="1.5" PointX="5.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedPlusDB_Model.Spr_AutopsyType" Width="1.5" PointX="6" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedPlusDB_Model.Spr_Benefit" Width="1.5" PointX="5.25" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedPlusDB_Model.Spr_Country" Width="1.5" PointX="0.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedPlusDB_Model.Spr_DeliveryPeriod" Width="1.5" PointX="0.75" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedPlusDB_Model.Spr_DeliveryType" Width="1.5" PointX="0.75" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedPlusDB_Model.Spr_Denial" Width="1.5" PointX="0.75" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedPlusDB_Model.Spr_Department" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedPlusDB_Model.Spr_Diagnosis" Width="1.5" PointX="0.75" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedPlusDB_Model.Spr_DocumentType" Width="1.5" PointX="0.75" PointY="23" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedPlusDB_Model.Spr_Gender" Width="1.5" PointX="0.75" PointY="25.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedPlusDB_Model.Spr_HospitalizationType" Width="1.5" PointX="0.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedPlusDB_Model.Spr_InjuryType" Width="1.5" PointX="0.75" PointY="30.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedPlusDB_Model.Spr_KLADR" Width="1.5" PointX="0.75" PointY="32.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedPlusDB_Model.Spr_PaymentType" Width="1.5" PointX="0.75" PointY="35" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedPlusDB_Model.Spr_Role" Width="1.5" PointX="0.75" PointY="50.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedPlusDB_Model.Spr_SendingOrganisation" Width="1.5" PointX="0.75" PointY="37.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedPlusDB_Model.Spr_SignOfDischarge" Width="1.5" PointX="0.75" PointY="40" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedPlusDB_Model.Spr_SignOfResidence" Width="1.5" PointX="0.75" PointY="42.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedPlusDB_Model.Spr_SocialStatus" Width="1.5" PointX="0.75" PointY="44.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedPlusDB_Model.Spr_Street" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedPlusDB_Model.Spr_TreatmentOutcome" Width="1.5" PointX="0.75" PointY="47.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedPlusDB_Model.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedPlusDB_Model.User" Width="1.5" PointX="3" PointY="50.125" IsExpanded="true" />
+        <AssociationConnector Association="MedPlusDB_Model.FK_ChangesOfPaymentType_MedCard" ManuallyRouted="false" />
+        <AssociationConnector Association="MedPlusDB_Model.FK_ChangesOfPaymentType_Spr_NewPaymentType" ManuallyRouted="false" />
+        <AssociationConnector Association="MedPlusDB_Model.FK_ChangesOfPaymentType_Spr_OldPaymentType" ManuallyRouted="false" />
+        <AssociationConnector Association="MedPlusDB_Model.FK_ChangesOfPaymentType_User" ManuallyRouted="false" />
+        <AssociationConnector Association="MedPlusDB_Model.FK_Death_AutopsyType" ManuallyRouted="false" />
+        <AssociationConnector Association="MedPlusDB_Model.FK_Death_MedCard" ManuallyRouted="false" />
+        <AssociationConnector Association="MedPlusDB_Model.FK_MedCard_Spr_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="MedPlusDB_Model.FK_MedCard_Spr_DeliveryPeriod" ManuallyRouted="false" />
+        <AssociationConnector Association="MedPlusDB_Model.FK_MedCard_Spr_DeliveryType" ManuallyRouted="false" />
+        <AssociationConnector Association="MedPlusDB_Model.FK_MedCard_Spr_Denial" ManuallyRouted="false" />
+        <AssociationConnector Association="MedPlusDB_Model.FK_MedCard_Spr_DepartmentDischarge" ManuallyRouted="false" />
+        <AssociationConnector Association="MedPlusDB_Model.FK_MedCard_Spr_DepartmentReceipt" ManuallyRouted="false" />
+        <AssociationConnector Association="MedPlusDB_Model.FK_MedCard_Spr_DiagnosisDischarge" ManuallyRouted="false" />
+        <AssociationConnector Association="MedPlusDB_Model.FK_MedCard_Spr_DiagnosisLPU" ManuallyRouted="false" />
+        <AssociationConnector Association="MedPlusDB_Model.FK_MedCard_Spr_DiagnosisPO" ManuallyRouted="false" />
+        <AssociationConnector Association="MedPlusDB_Model.FK_MedCard_Spr_DocumentType" ManuallyRouted="false" />
+        <AssociationConnector Association="MedPlusDB_Model.FK_MedCard_Spr_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="MedPlusDB_Model.FK_MedCard_Spr_HospitaliztionType" ManuallyRouted="false" />
+        <AssociationConnector Association="MedPlusDB_Model.FK_MedCard_Spr_InjuryType" ManuallyRouted="false" />
+        <AssociationConnector Association="MedPlusDB_Model.FK_MedCard_Spr_KLADR" ManuallyRouted="false" />
+        <AssociationConnector Association="MedPlusDB_Model.FK_MedCard_Spr_PaymentType" ManuallyRouted="false" />
+        <AssociationConnector Association="MedPlusDB_Model.FK_MedCard_Spr_SendingOrganisation" ManuallyRouted="false" />
+        <AssociationConnector Association="MedPlusDB_Model.FK_MedCard_Spr_SignOfDischarge" ManuallyRouted="false" />
+        <AssociationConnector Association="MedPlusDB_Model.FK_MedCard_Spr_SignOfResidence" ManuallyRouted="false" />
+        <AssociationConnector Association="MedPlusDB_Model.FK_MedCard_Spr_SocialStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="MedPlusDB_Model.FK_MedCard_Spr_TreatmentOutcome" ManuallyRouted="false" />
+        <AssociationConnector Association="MedPlusDB_Model.FK_PatientMovement_MedCard" ManuallyRouted="false" />
+        <AssociationConnector Association="MedPlusDB_Model.FK_PatientMovement_Spr_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="MedPlusDB_Model.FK_PatientMovement_Spr_SignOfDischarge" ManuallyRouted="false" />
+        <AssociationConnector Association="MedPlusDB_Model.FK_User_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="MedPlusDB_Model.BenefitsOfPatients" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

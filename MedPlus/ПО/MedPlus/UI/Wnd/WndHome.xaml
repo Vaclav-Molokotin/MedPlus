@@ -1,0 +1,49 @@
+﻿<Window x:Class="MedPlus.UI.Wnd.WndHome"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MedPlus.UI.Wnd"
+        mc:Ignorable="d"
+        Title="МедПлюс - Главная"
+        Icon="/Resources/Assets/Icon.png"
+        Height="1024" Width="1440"
+        MinHeight="800" MinWidth="800"
+        Closing="Window_Closing"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="320"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="64"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <Border BorderThickness="2" BorderBrush="{StaticResource AccentColor}" Grid.ColumnSpan="2"></Border>        
+        <Image Source="/Resources/Assets/Icon.png" Margin="10" HorizontalAlignment="Left"/>
+        <Label x:Name="LabHeader" Grid.Column="1" HorizontalAlignment="Left" Margin="0" Padding="0">Пациенты</Label>
+        
+        <Border Grid.Row="1" BorderThickness="2" BorderBrush="{StaticResource AccentColor}">
+            <DockPanel>
+                <StackPanel Orientation="Vertical" DockPanel.Dock="Top">
+                    <Button Style="{StaticResource BtnWhite}" Width="250" x:Name="BtnPatients" Click="BtnPatients_Click">Пациенты</Button>
+                    <Button Style="{StaticResource BtnWhite}" Width="250" x:Name="BtnReports" Click="BtnReports_Click">Отчётность</Button>                    
+                </StackPanel>
+                <Grid>
+                    <Button x:Name="BtnExit" Width="250" VerticalAlignment="Bottom" Style="{StaticResource BtnWhite}" Click="BtnExit_Click">Выход</Button>
+                </Grid>
+            </DockPanel>
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="1" BorderThickness="2" BorderBrush="{StaticResource AccentColor}">
+            <Frame x:Name="FrMain" NavigationUIVisibility="Hidden" Navigated="FrMain_Navigated"></Frame>
+        </Border>
+
+        <Grid Background="{StaticResource AccentColor}" Grid.Row="2" Grid.ColumnSpan="2">
+            <TextBlock x:Name="TblCurrentUser" Foreground="White" Style="{StaticResource TblBase}" Text="Текущий пользователь: "></TextBlock>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,2144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище MedPlusDB_Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BenefitsOfPatients">
+          <Key>
+            <PropertyRef Name="BenefitID" />
+            <PropertyRef Name="CardID" />
+          </Key>
+          <Property Name="BenefitID" Type="int" Nullable="false" />
+          <Property Name="CardID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ChangesOfPaymentType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OldPaymentTypeID" Type="int" Nullable="false" />
+          <Property Name="NewPaymentTypeID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="DateTime" Type="date" Nullable="false" />
+          <Property Name="CardID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Death">
+          <Key>
+            <PropertyRef Name="CardID" />
+          </Key>
+          <Property Name="CardID" Type="int" Nullable="false" />
+          <Property Name="TimeDeath" Type="time" Precision="7" />
+          <Property Name="SignOfAutopsy" Type="bit" />
+          <Property Name="AutopsyTypeID" Type="int" />
+          <Property Name="DiagnosisAutopsy" Type="int" />
+        </EntityType>
+        <EntityType Name="MedCard">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateTimeReceipt" Type="datetime" />
+          <Property Name="DepartmentID_Receipt" Type="int" />
+          <Property Name="DepartmentID_Discharge" Type="int" />
+          <Property Name="DocumentTypeID" Type="int" />
+          <Property Name="DocumentSeria" Type="nvarchar" MaxLength="100" />
+          <Property Name="DocumentNumber" Type="nvarchar" MaxLength="100" />
+          <Property Name="LName" Type="nvarchar" MaxLength="500" />
+          <Property Name="FName" Type="nvarchar" MaxLength="500" />
+          <Property Name="MName" Type="nvarchar" MaxLength="500" />
+          <Property Name="GenderCode" Type="nchar" MaxLength="1" />
+          <Property Name="Birthday" Type="date" />
+          <Property Name="SignOfResidenceID" Type="int" />
+          <Property Name="CountryID" Type="int" />
+          <Property Name="KLADR_ID" Type="nchar" MaxLength="11" />
+          <Property Name="Street" Type="nvarchar" MaxLength="500" />
+          <Property Name="HouseNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="BuildingNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="ApartmentNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nchar" MaxLength="14" />
+          <Property Name="SocialStatusID" Type="int" />
+          <Property Name="Job" Type="nvarchar" MaxLength="1000" />
+          <Property Name="JobTitle" Type="nvarchar" MaxLength="1000" />
+          <Property Name="PaymentTypeID" Type="int" />
+          <Property Name="PolicySeria" Type="nvarchar" MaxLength="5" />
+          <Property Name="PolicyNumber" Type="nvarchar" MaxLength="16" />
+          <Property Name="SNILS" Type="nchar" MaxLength="11" />
+          <Property Name="SendingOrdanisationID" Type="nvarchar" MaxLength="6" />
+          <Property Name="SendingDate" Type="date" />
+          <Property Name="HospitalizationTypeID" Type="int" Nullable="false" />
+          <Property Name="DeliveryTypeID" Type="int" />
+          <Property Name="DiagnosisCode_LPU" Type="nvarchar" MaxLength="6" />
+          <Property Name="DiagnosisDescription_LPU" Type="varchar" MaxLength="1000" />
+          <Property Name="DiagnosisCode_PO" Type="nvarchar" MaxLength="6" />
+          <Property Name="DiagnosisDescription_PO" Type="nvarchar" MaxLength="1000" />
+          <Property Name="IsRepeated" Type="int" />
+          <Property Name="InjuryTypeID" Type="int" />
+          <Property Name="DeliveryPeriodID" Type="int" />
+          <Property Name="DateTimeDischarge" Type="datetime" />
+          <Property Name="SignOfDischargeID" Type="int" />
+          <Property Name="DiagnosisCode_Discharge" Type="nvarchar" MaxLength="6" />
+          <Property Name="TreatmentOutcomeID" Type="int" />
+          <Property Name="DenialID" Type="int" />
+          <Property Name="BrigadeNumber" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="PatientMovement">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SignOfDischargeID" Type="int" Nullable="false" />
+          <Property Name="DepartmentID" Type="int" Nullable="false" />
+          <Property Name="DateTimeReceipt" Type="datetime" Nullable="false" />
+          <Property Name="DateTimeDischarge" Type="datetime" />
+          <Property Name="CardID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Spr_AutopsyType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="400" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Spr_Benefit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Spr_Country">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Spr_DeliveryPeriod">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Spr_DeliveryType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="400" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Spr_Denial">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Spr_Department">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Beds" Type="int" />
+          <Property Name="SerialNumber" Type="int" />
+          <Property Name="IsDayDepartment" Type="int" />
+        </EntityType>
+        <EntityType Name="Spr_Diagnosis">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="1000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Spr_DocumentType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Spr_Gender">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Spr_HospitalizationType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Spr_InjuryType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Spr_KLADR">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="nchar" MaxLength="11" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Abbreviation" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Spr_PaymentType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Spr_Role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Spr_SendingOrganisation">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="1000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Spr_SignOfDischarge">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Spr_SignOfResidence">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Spr_SocialStatus">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Spr_Street">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="nchar" MaxLength="17" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="Abbreviation" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Spr_TreatmentOutcome">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="400" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nchar" MaxLength="32" Nullable="false" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="FName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="LName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="MName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Birthdate" Type="date" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_BenefitsOfPatients_MedCard">
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BenefitsOfPatients" Type="Self.BenefitsOfPatients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedCard">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BenefitsOfPatients">
+              <PropertyRef Name="CardID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BenefitsOfPatients_Spr_Benefit">
+          <End Role="Spr_Benefit" Type="Self.Spr_Benefit" Multiplicity="1" />
+          <End Role="BenefitsOfPatients" Type="Self.BenefitsOfPatients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_Benefit">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BenefitsOfPatients">
+              <PropertyRef Name="BenefitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChangesOfPaymentType_MedCard">
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="1" />
+          <End Role="ChangesOfPaymentType" Type="Self.ChangesOfPaymentType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedCard">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ChangesOfPaymentType">
+              <PropertyRef Name="CardID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChangesOfPaymentType_Spr_NewPaymentType">
+          <End Role="Spr_PaymentType" Type="Self.Spr_PaymentType" Multiplicity="1" />
+          <End Role="ChangesOfPaymentType" Type="Self.ChangesOfPaymentType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_PaymentType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ChangesOfPaymentType">
+              <PropertyRef Name="NewPaymentTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChangesOfPaymentType_Spr_OldPaymentType">
+          <End Role="Spr_PaymentType" Type="Self.Spr_PaymentType" Multiplicity="1" />
+          <End Role="ChangesOfPaymentType" Type="Self.ChangesOfPaymentType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_PaymentType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ChangesOfPaymentType">
+              <PropertyRef Name="OldPaymentTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChangesOfPaymentType_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="ChangesOfPaymentType" Type="Self.ChangesOfPaymentType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ChangesOfPaymentType">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Death_AutopsyType">
+          <End Role="Spr_AutopsyType" Type="Self.Spr_AutopsyType" Multiplicity="0..1" />
+          <End Role="Death" Type="Self.Death" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_AutopsyType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Death">
+              <PropertyRef Name="AutopsyTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Death_MedCard">
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Death" Type="Self.Death" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="MedCard">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Death">
+              <PropertyRef Name="CardID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_Country">
+          <End Role="Spr_Country" Type="Self.Spr_Country" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_Country">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_DeliveryPeriod">
+          <End Role="Spr_DeliveryPeriod" Type="Self.Spr_DeliveryPeriod" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_DeliveryPeriod">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="DeliveryPeriodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_DeliveryType">
+          <End Role="Spr_DeliveryType" Type="Self.Spr_DeliveryType" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_DeliveryType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="DeliveryTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_Denial">
+          <End Role="Spr_Denial" Type="Self.Spr_Denial" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_Denial">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="DenialID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_DepartmentDischarge">
+          <End Role="Spr_Department" Type="Self.Spr_Department" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_Department">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="DepartmentID_Discharge" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_DepartmentReceipt">
+          <End Role="Spr_Department" Type="Self.Spr_Department" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_Department">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="DepartmentID_Receipt" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_DiagnosisDischarge">
+          <End Role="Spr_Diagnosis" Type="Self.Spr_Diagnosis" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_Diagnosis">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="DiagnosisCode_Discharge" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_DiagnosisLPU">
+          <End Role="Spr_Diagnosis" Type="Self.Spr_Diagnosis" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_Diagnosis">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="DiagnosisCode_LPU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_DiagnosisPO">
+          <End Role="Spr_Diagnosis" Type="Self.Spr_Diagnosis" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_Diagnosis">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="DiagnosisCode_PO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_DocumentType">
+          <End Role="Spr_DocumentType" Type="Self.Spr_DocumentType" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_DocumentType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="DocumentTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_Gender">
+          <End Role="Spr_Gender" Type="Self.Spr_Gender" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_Gender">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="GenderCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_HospitaliztionType">
+          <End Role="Spr_HospitalizationType" Type="Self.Spr_HospitalizationType" Multiplicity="1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_HospitalizationType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="HospitalizationTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_InjuryType">
+          <End Role="Spr_InjuryType" Type="Self.Spr_InjuryType" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_InjuryType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="InjuryTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_KLADR">
+          <End Role="Spr_KLADR" Type="Self.Spr_KLADR" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_KLADR">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="KLADR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_PaymentType">
+          <End Role="Spr_PaymentType" Type="Self.Spr_PaymentType" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_PaymentType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="PaymentTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_SendingOrganisation">
+          <End Role="Spr_SendingOrganisation" Type="Self.Spr_SendingOrganisation" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_SendingOrganisation">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="SendingOrdanisationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_SignOfDischarge">
+          <End Role="Spr_SignOfDischarge" Type="Self.Spr_SignOfDischarge" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_SignOfDischarge">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="SignOfDischargeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_SignOfResidence">
+          <End Role="Spr_SignOfResidence" Type="Self.Spr_SignOfResidence" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_SignOfResidence">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="SignOfResidenceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_SocialStatus">
+          <End Role="Spr_SocialStatus" Type="Self.Spr_SocialStatus" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_SocialStatus">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="SocialStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_TreatmentOutcome">
+          <End Role="Spr_TreatmentOutcome" Type="Self.Spr_TreatmentOutcome" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_TreatmentOutcome">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="TreatmentOutcomeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PatientMovement_MedCard">
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PatientMovement" Type="Self.PatientMovement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedCard">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PatientMovement">
+              <PropertyRef Name="CardID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PatientMovement_Spr_Department">
+          <End Role="Spr_Department" Type="Self.Spr_Department" Multiplicity="1" />
+          <End Role="PatientMovement" Type="Self.PatientMovement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_Department">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PatientMovement">
+              <PropertyRef Name="DepartmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PatientMovement_Spr_SignOfDischarge">
+          <End Role="Spr_SignOfDischarge" Type="Self.Spr_SignOfDischarge" Multiplicity="1" />
+          <End Role="PatientMovement" Type="Self.PatientMovement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_SignOfDischarge">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PatientMovement">
+              <PropertyRef Name="SignOfDischargeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Role">
+          <End Role="Spr_Role" Type="Self.Spr_Role" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_Role">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Sp_ListOfAddmited" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dateBegin" Type="datetime" Mode="In" />
+          <Parameter Name="dateEnd" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="Sp_SignalStatement" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="date" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="Хранилище MedPlusDB_ModelContainer">
+          <EntitySet Name="BenefitsOfPatients" EntityType="Self.BenefitsOfPatients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChangesOfPaymentType" EntityType="Self.ChangesOfPaymentType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Death" EntityType="Self.Death" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MedCard" EntityType="Self.MedCard" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PatientMovement" EntityType="Self.PatientMovement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Spr_AutopsyType" EntityType="Self.Spr_AutopsyType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Spr_Benefit" EntityType="Self.Spr_Benefit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Spr_Country" EntityType="Self.Spr_Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Spr_DeliveryPeriod" EntityType="Self.Spr_DeliveryPeriod" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Spr_DeliveryType" EntityType="Self.Spr_DeliveryType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Spr_Denial" EntityType="Self.Spr_Denial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Spr_Department" EntityType="Self.Spr_Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Spr_Diagnosis" EntityType="Self.Spr_Diagnosis" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Spr_DocumentType" EntityType="Self.Spr_DocumentType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Spr_Gender" EntityType="Self.Spr_Gender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Spr_HospitalizationType" EntityType="Self.Spr_HospitalizationType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Spr_InjuryType" EntityType="Self.Spr_InjuryType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Spr_KLADR" EntityType="Self.Spr_KLADR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Spr_PaymentType" EntityType="Self.Spr_PaymentType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Spr_Role" EntityType="Self.Spr_Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Spr_SendingOrganisation" EntityType="Self.Spr_SendingOrganisation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Spr_SignOfDischarge" EntityType="Self.Spr_SignOfDischarge" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Spr_SignOfResidence" EntityType="Self.Spr_SignOfResidence" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Spr_SocialStatus" EntityType="Self.Spr_SocialStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Spr_Street" EntityType="Self.Spr_Street" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Spr_TreatmentOutcome" EntityType="Self.Spr_TreatmentOutcome" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_BenefitsOfPatients_MedCard" Association="Self.FK_BenefitsOfPatients_MedCard">
+            <End Role="MedCard" EntitySet="MedCard" />
+            <End Role="BenefitsOfPatients" EntitySet="BenefitsOfPatients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BenefitsOfPatients_Spr_Benefit" Association="Self.FK_BenefitsOfPatients_Spr_Benefit">
+            <End Role="Spr_Benefit" EntitySet="Spr_Benefit" />
+            <End Role="BenefitsOfPatients" EntitySet="BenefitsOfPatients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChangesOfPaymentType_MedCard" Association="Self.FK_ChangesOfPaymentType_MedCard">
+            <End Role="MedCard" EntitySet="MedCard" />
+            <End Role="ChangesOfPaymentType" EntitySet="ChangesOfPaymentType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChangesOfPaymentType_Spr_NewPaymentType" Association="Self.FK_ChangesOfPaymentType_Spr_NewPaymentType">
+            <End Role="Spr_PaymentType" EntitySet="Spr_PaymentType" />
+            <End Role="ChangesOfPaymentType" EntitySet="ChangesOfPaymentType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChangesOfPaymentType_Spr_OldPaymentType" Association="Self.FK_ChangesOfPaymentType_Spr_OldPaymentType">
+            <End Role="Spr_PaymentType" EntitySet="Spr_PaymentType" />
+            <End Role="ChangesOfPaymentType" EntitySet="ChangesOfPaymentType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChangesOfPaymentType_User" Association="Self.FK_ChangesOfPaymentType_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="ChangesOfPaymentType" EntitySet="ChangesOfPaymentType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Death_AutopsyType" Association="Self.FK_Death_AutopsyType">
+            <End Role="Spr_AutopsyType" EntitySet="Spr_AutopsyType" />
+            <End Role="Death" EntitySet="Death" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Death_MedCard" Association="Self.FK_Death_MedCard">
+            <End Role="MedCard" EntitySet="MedCard" />
+            <End Role="Death" EntitySet="Death" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_Country" Association="Self.FK_MedCard_Spr_Country">
+            <End Role="Spr_Country" EntitySet="Spr_Country" />
+            <End Role="MedCard" EntitySet="MedCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_DeliveryPeriod" Association="Self.FK_MedCard_Spr_DeliveryPeriod">
+            <End Role="Spr_DeliveryPeriod" EntitySet="Spr_DeliveryPeriod" />
+            <End Role="MedCard" EntitySet="MedCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_DeliveryType" Association="Self.FK_MedCard_Spr_DeliveryType">
+            <End Role="Spr_DeliveryType" EntitySet="Spr_DeliveryType" />
+            <End Role="MedCard" EntitySet="MedCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_Denial" Association="Self.FK_MedCard_Spr_Denial">
+            <End Role="Spr_Denial" EntitySet="Spr_Denial" />
+            <End Role="MedCard" EntitySet="MedCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_DepartmentDischarge" Association="Self.FK_MedCard_Spr_DepartmentDischarge">
+            <End Role="Spr_Department" EntitySet="Spr_Department" />
+            <End Role="MedCard" EntitySet="MedCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_DepartmentReceipt" Association="Self.FK_MedCard_Spr_DepartmentReceipt">
+            <End Role="Spr_Department" EntitySet="Spr_Department" />
+            <End Role="MedCard" EntitySet="MedCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_DiagnosisDischarge" Association="Self.FK_MedCard_Spr_DiagnosisDischarge">
+            <End Role="Spr_Diagnosis" EntitySet="Spr_Diagnosis" />
+            <End Role="MedCard" EntitySet="MedCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_DiagnosisLPU" Association="Self.FK_MedCard_Spr_DiagnosisLPU">
+            <End Role="Spr_Diagnosis" EntitySet="Spr_Diagnosis" />
+            <End Role="MedCard" EntitySet="MedCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_DiagnosisPO" Association="Self.FK_MedCard_Spr_DiagnosisPO">
+            <End Role="Spr_Diagnosis" EntitySet="Spr_Diagnosis" />
+            <End Role="MedCard" EntitySet="MedCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_DocumentType" Association="Self.FK_MedCard_Spr_DocumentType">
+            <End Role="Spr_DocumentType" EntitySet="Spr_DocumentType" />
+            <End Role="MedCard" EntitySet="MedCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_Gender" Association="Self.FK_MedCard_Spr_Gender">
+            <End Role="Spr_Gender" EntitySet="Spr_Gender" />
+            <End Role="MedCard" EntitySet="MedCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_HospitaliztionType" Association="Self.FK_MedCard_Spr_HospitaliztionType">
+            <End Role="Spr_HospitalizationType" EntitySet="Spr_HospitalizationType" />
+            <End Role="MedCard" EntitySet="MedCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_InjuryType" Association="Self.FK_MedCard_Spr_InjuryType">
+            <End Role="Spr_InjuryType" EntitySet="Spr_InjuryType" />
+            <End Role="MedCard" EntitySet="MedCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_KLADR" Association="Self.FK_MedCard_Spr_KLADR">
+            <End Role="Spr_KLADR" EntitySet="Spr_KLADR" />
+            <End Role="MedCard" EntitySet="MedCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_PaymentType" Association="Self.FK_MedCard_Spr_PaymentType">
+            <End Role="Spr_PaymentType" EntitySet="Spr_PaymentType" />
+            <End Role="MedCard" EntitySet="MedCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_SendingOrganisation" Association="Self.FK_MedCard_Spr_SendingOrganisation">
+            <End Role="Spr_SendingOrganisation" EntitySet="Spr_SendingOrganisation" />
+            <End Role="MedCard" EntitySet="MedCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_SignOfDischarge" Association="Self.FK_MedCard_Spr_SignOfDischarge">
+            <End Role="Spr_SignOfDischarge" EntitySet="Spr_SignOfDischarge" />
+            <End Role="MedCard" EntitySet="MedCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_SignOfResidence" Association="Self.FK_MedCard_Spr_SignOfResidence">
+            <End Role="Spr_SignOfResidence" EntitySet="Spr_SignOfResidence" />
+            <End Role="MedCard" EntitySet="MedCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_SocialStatus" Association="Self.FK_MedCard_Spr_SocialStatus">
+            <End Role="Spr_SocialStatus" EntitySet="Spr_SocialStatus" />
+            <End Role="MedCard" EntitySet="MedCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_TreatmentOutcome" Association="Self.FK_MedCard_Spr_TreatmentOutcome">
+            <End Role="Spr_TreatmentOutcome" EntitySet="Spr_TreatmentOutcome" />
+            <End Role="MedCard" EntitySet="MedCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PatientMovement_MedCard" Association="Self.FK_PatientMovement_MedCard">
+            <End Role="MedCard" EntitySet="MedCard" />
+            <End Role="PatientMovement" EntitySet="PatientMovement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PatientMovement_Spr_Department" Association="Self.FK_PatientMovement_Spr_Department">
+            <End Role="Spr_Department" EntitySet="Spr_Department" />
+            <End Role="PatientMovement" EntitySet="PatientMovement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PatientMovement_Spr_SignOfDischarge" Association="Self.FK_PatientMovement_Spr_SignOfDischarge">
+            <End Role="Spr_SignOfDischarge" EntitySet="Spr_SignOfDischarge" />
+            <End Role="PatientMovement" EntitySet="PatientMovement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+            <End Role="Spr_Role" EntitySet="Spr_Role" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MedPlusDB_Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ChangesOfPaymentType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OldPaymentTypeID" Type="Int32" Nullable="false" />
+          <Property Name="NewPaymentTypeID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="DateTime" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CardID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MedCard" Relationship="Self.FK_ChangesOfPaymentType_MedCard" FromRole="ChangesOfPaymentType" ToRole="MedCard" />
+          <NavigationProperty Name="Spr_PaymentType" Relationship="Self.FK_ChangesOfPaymentType_Spr_NewPaymentType" FromRole="ChangesOfPaymentType" ToRole="Spr_PaymentType" />
+          <NavigationProperty Name="Spr_PaymentType1" Relationship="Self.FK_ChangesOfPaymentType_Spr_OldPaymentType" FromRole="ChangesOfPaymentType" ToRole="Spr_PaymentType" />
+          <NavigationProperty Name="User" Relationship="Self.FK_ChangesOfPaymentType_User" FromRole="ChangesOfPaymentType" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Death">
+          <Key>
+            <PropertyRef Name="CardID" />
+          </Key>
+          <Property Name="CardID" Type="Int32" Nullable="false" />
+          <Property Name="TimeDeath" Type="Time" Precision="7" />
+          <Property Name="SignOfAutopsy" Type="Boolean" />
+          <Property Name="AutopsyTypeID" Type="Int32" />
+          <Property Name="DiagnosisAutopsy" Type="Int32" />
+          <NavigationProperty Name="Spr_AutopsyType" Relationship="Self.FK_Death_AutopsyType" FromRole="Death" ToRole="Spr_AutopsyType" />
+          <NavigationProperty Name="MedCard" Relationship="Self.FK_Death_MedCard" FromRole="Death" ToRole="MedCard" />
+        </EntityType>
+        <EntityType Name="MedCard">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateTimeReceipt" Type="DateTime" Precision="3" />
+          <Property Name="DepartmentID_Receipt" Type="Int32" />
+          <Property Name="DepartmentID_Discharge" Type="Int32" />
+          <Property Name="DocumentTypeID" Type="Int32" />
+          <Property Name="DocumentSeria" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DocumentNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="FName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="GenderCode" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="Birthday" Type="DateTime" Precision="0" />
+          <Property Name="SignOfResidenceID" Type="Int32" />
+          <Property Name="CountryID" Type="Int32" />
+          <Property Name="KLADR_ID" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+          <Property Name="Street" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="HouseNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BuildingNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ApartmentNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="14" FixedLength="true" Unicode="true" />
+          <Property Name="SocialStatusID" Type="Int32" />
+          <Property Name="Job" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="JobTitle" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentTypeID" Type="Int32" />
+          <Property Name="PolicySeria" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="PolicyNumber" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="SNILS" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+          <Property Name="SendingOrdanisationID" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="SendingDate" Type="DateTime" Precision="0" />
+          <Property Name="HospitalizationTypeID" Type="Int32" Nullable="false" />
+          <Property Name="DeliveryTypeID" Type="Int32" />
+          <Property Name="DiagnosisCode_LPU" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="DiagnosisDescription_LPU" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="DiagnosisCode_PO" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="DiagnosisDescription_PO" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="IsRepeated" Type="Int32" />
+          <Property Name="InjuryTypeID" Type="Int32" />
+          <Property Name="DeliveryPeriodID" Type="Int32" />
+          <Property Name="DateTimeDischarge" Type="DateTime" Precision="3" />
+          <Property Name="SignOfDischargeID" Type="Int32" />
+          <Property Name="DiagnosisCode_Discharge" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="TreatmentOutcomeID" Type="Int32" />
+          <Property Name="DenialID" Type="Int32" />
+          <Property Name="BrigadeNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ChangesOfPaymentTypes" Relationship="Self.FK_ChangesOfPaymentType_MedCard" FromRole="MedCard" ToRole="ChangesOfPaymentType" />
+          <NavigationProperty Name="Death" Relationship="Self.FK_Death_MedCard" FromRole="MedCard" ToRole="Death" />
+          <NavigationProperty Name="Spr_Country" Relationship="Self.FK_MedCard_Spr_Country" FromRole="MedCard" ToRole="Spr_Country" />
+          <NavigationProperty Name="Spr_DeliveryPeriod" Relationship="Self.FK_MedCard_Spr_DeliveryPeriod" FromRole="MedCard" ToRole="Spr_DeliveryPeriod" />
+          <NavigationProperty Name="Spr_DeliveryType" Relationship="Self.FK_MedCard_Spr_DeliveryType" FromRole="MedCard" ToRole="Spr_DeliveryType" />
+          <NavigationProperty Name="Spr_Denial" Relationship="Self.FK_MedCard_Spr_Denial" FromRole="MedCard" ToRole="Spr_Denial" />
+          <NavigationProperty Name="Spr_Department" Relationship="Self.FK_MedCard_Spr_DepartmentDischarge" FromRole="MedCard" ToRole="Spr_Department" />
+          <NavigationProperty Name="Spr_Department1" Relationship="Self.FK_MedCard_Spr_DepartmentReceipt" FromRole="MedCard" ToRole="Spr_Department" />
+          <NavigationProperty Name="Spr_Diagnosis" Relationship="Self.FK_MedCard_Spr_DiagnosisDischarge" FromRole="MedCard" ToRole="Spr_Diagnosis" />
+          <NavigationProperty Name="Spr_Diagnosis1" Relationship="Self.FK_MedCard_Spr_DiagnosisLPU" FromRole="MedCard" ToRole="Spr_Diagnosis" />
+          <NavigationProperty Name="Spr_Diagnosis2" Relationship="Self.FK_MedCard_Spr_DiagnosisPO" FromRole="MedCard" ToRole="Spr_Diagnosis" />
+          <NavigationProperty Name="Spr_DocumentType" Relationship="Self.FK_MedCard_Spr_DocumentType" FromRole="MedCard" ToRole="Spr_DocumentType" />
+          <NavigationProperty Name="Spr_Gender" Relationship="Self.FK_MedCard_Spr_Gender" FromRole="MedCard" ToRole="Spr_Gender" />
+          <NavigationProperty Name="Spr_HospitalizationType" Relationship="Self.FK_MedCard_Spr_HospitaliztionType" FromRole="MedCard" ToRole="Spr_HospitalizationType" />
+          <NavigationProperty Name="Spr_InjuryType" Relationship="Self.FK_MedCard_Spr_InjuryType" FromRole="MedCard" ToRole="Spr_InjuryType" />
+          <NavigationProperty Name="Spr_KLADR" Relationship="Self.FK_MedCard_Spr_KLADR" FromRole="MedCard" ToRole="Spr_KLADR" />
+          <NavigationProperty Name="Spr_PaymentType" Relationship="Self.FK_MedCard_Spr_PaymentType" FromRole="MedCard" ToRole="Spr_PaymentType" />
+          <NavigationProperty Name="Spr_SendingOrganisation" Relationship="Self.FK_MedCard_Spr_SendingOrganisation" FromRole="MedCard" ToRole="Spr_SendingOrganisation" />
+          <NavigationProperty Name="Spr_SignOfDischarge" Relationship="Self.FK_MedCard_Spr_SignOfDischarge" FromRole="MedCard" ToRole="Spr_SignOfDischarge" />
+          <NavigationProperty Name="Spr_SignOfResidence" Relationship="Self.FK_MedCard_Spr_SignOfResidence" FromRole="MedCard" ToRole="Spr_SignOfResidence" />
+          <NavigationProperty Name="Spr_SocialStatus" Relationship="Self.FK_MedCard_Spr_SocialStatus" FromRole="MedCard" ToRole="Spr_SocialStatus" />
+          <NavigationProperty Name="Spr_TreatmentOutcome" Relationship="Self.FK_MedCard_Spr_TreatmentOutcome" FromRole="MedCard" ToRole="Spr_TreatmentOutcome" />
+          <NavigationProperty Name="PatientMovements" Relationship="Self.FK_PatientMovement_MedCard" FromRole="MedCard" ToRole="PatientMovement" />
+          <NavigationProperty Name="Spr_Benefit" Relationship="Self.BenefitsOfPatients" FromRole="MedCard" ToRole="Spr_Benefit" />
+        </EntityType>
+        <EntityType Name="PatientMovement">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SignOfDischargeID" Type="Int32" Nullable="false" />
+          <Property Name="DepartmentID" Type="Int32" Nullable="false" />
+          <Property Name="DateTimeReceipt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateTimeDischarge" Type="DateTime" Precision="3" />
+          <Property Name="CardID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MedCard" Relationship="Self.FK_PatientMovement_MedCard" FromRole="PatientMovement" ToRole="MedCard" />
+          <NavigationProperty Name="Spr_Department" Relationship="Self.FK_PatientMovement_Spr_Department" FromRole="PatientMovement" ToRole="Spr_Department" />
+          <NavigationProperty Name="Spr_SignOfDischarge" Relationship="Self.FK_PatientMovement_Spr_SignOfDischarge" FromRole="PatientMovement" ToRole="Spr_SignOfDischarge" />
+        </EntityType>
+        <EntityType Name="Spr_AutopsyType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Deaths" Relationship="Self.FK_Death_AutopsyType" FromRole="Spr_AutopsyType" ToRole="Death" />
+        </EntityType>
+        <EntityType Name="Spr_Benefit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MedCards" Relationship="Self.BenefitsOfPatients" FromRole="Spr_Benefit" ToRole="MedCard" />
+        </EntityType>
+        <EntityType Name="Spr_Country">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MedCards" Relationship="Self.FK_MedCard_Spr_Country" FromRole="Spr_Country" ToRole="MedCard" />
+        </EntityType>
+        <EntityType Name="Spr_DeliveryPeriod">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MedCards" Relationship="Self.FK_MedCard_Spr_DeliveryPeriod" FromRole="Spr_DeliveryPeriod" ToRole="MedCard" />
+        </EntityType>
+        <EntityType Name="Spr_DeliveryType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MedCards" Relationship="Self.FK_MedCard_Spr_DeliveryType" FromRole="Spr_DeliveryType" ToRole="MedCard" />
+        </EntityType>
+        <EntityType Name="Spr_Denial">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MedCards" Relationship="Self.FK_MedCard_Spr_Denial" FromRole="Spr_Denial" ToRole="MedCard" />
+        </EntityType>
+        <EntityType Name="Spr_Department">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Beds" Type="Int32" />
+          <Property Name="SerialNumber" Type="Int32" />
+          <Property Name="IsDayDepartment" Type="Int32" />
+          <NavigationProperty Name="MedCards" Relationship="Self.FK_MedCard_Spr_DepartmentDischarge" FromRole="Spr_Department" ToRole="MedCard" />
+          <NavigationProperty Name="MedCards1" Relationship="Self.FK_MedCard_Spr_DepartmentReceipt" FromRole="Spr_Department" ToRole="MedCard" />
+          <NavigationProperty Name="PatientMovements" Relationship="Self.FK_PatientMovement_Spr_Department" FromRole="Spr_Department" ToRole="PatientMovement" />
+        </EntityType>
+        <EntityType Name="Spr_Diagnosis">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MedCards" Relationship="Self.FK_MedCard_Spr_DiagnosisDischarge" FromRole="Spr_Diagnosis" ToRole="MedCard" />
+          <NavigationProperty Name="MedCards1" Relationship="Self.FK_MedCard_Spr_DiagnosisLPU" FromRole="Spr_Diagnosis" ToRole="MedCard" />
+          <NavigationProperty Name="MedCards2" Relationship="Self.FK_MedCard_Spr_DiagnosisPO" FromRole="Spr_Diagnosis" ToRole="MedCard" />
+        </EntityType>
+        <EntityType Name="Spr_DocumentType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MedCards" Relationship="Self.FK_MedCard_Spr_DocumentType" FromRole="Spr_DocumentType" ToRole="MedCard" />
+        </EntityType>
+        <EntityType Name="Spr_Gender">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MedCards" Relationship="Self.FK_MedCard_Spr_Gender" FromRole="Spr_Gender" ToRole="MedCard" />
+        </EntityType>
+        <EntityType Name="Spr_HospitalizationType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MedCards" Relationship="Self.FK_MedCard_Spr_HospitaliztionType" FromRole="Spr_HospitalizationType" ToRole="MedCard" />
+        </EntityType>
+        <EntityType Name="Spr_InjuryType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MedCards" Relationship="Self.FK_MedCard_Spr_InjuryType" FromRole="Spr_InjuryType" ToRole="MedCard" />
+        </EntityType>
+        <EntityType Name="Spr_KLADR">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Abbreviation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MedCards" Relationship="Self.FK_MedCard_Spr_KLADR" FromRole="Spr_KLADR" ToRole="MedCard" />
+        </EntityType>
+        <EntityType Name="Spr_PaymentType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ChangesOfPaymentTypes" Relationship="Self.FK_ChangesOfPaymentType_Spr_NewPaymentType" FromRole="Spr_PaymentType" ToRole="ChangesOfPaymentType" />
+          <NavigationProperty Name="ChangesOfPaymentTypes1" Relationship="Self.FK_ChangesOfPaymentType_Spr_OldPaymentType" FromRole="Spr_PaymentType" ToRole="ChangesOfPaymentType" />
+          <NavigationProperty Name="MedCards" Relationship="Self.FK_MedCard_Spr_PaymentType" FromRole="Spr_PaymentType" ToRole="MedCard" />
+        </EntityType>
+        <EntityType Name="Spr_Role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_User_Role" FromRole="Spr_Role" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Spr_SendingOrganisation">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MedCards" Relationship="Self.FK_MedCard_Spr_SendingOrganisation" FromRole="Spr_SendingOrganisation" ToRole="MedCard" />
+        </EntityType>
+        <EntityType Name="Spr_SignOfDischarge">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MedCards" Relationship="Self.FK_MedCard_Spr_SignOfDischarge" FromRole="Spr_SignOfDischarge" ToRole="MedCard" />
+          <NavigationProperty Name="PatientMovements" Relationship="Self.FK_PatientMovement_Spr_SignOfDischarge" FromRole="Spr_SignOfDischarge" ToRole="PatientMovement" />
+        </EntityType>
+        <EntityType Name="Spr_SignOfResidence">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MedCards" Relationship="Self.FK_MedCard_Spr_SignOfResidence" FromRole="Spr_SignOfResidence" ToRole="MedCard" />
+        </EntityType>
+        <EntityType Name="Spr_SocialStatus">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MedCards" Relationship="Self.FK_MedCard_Spr_SocialStatus" FromRole="Spr_SocialStatus" ToRole="MedCard" />
+        </EntityType>
+        <EntityType Name="Spr_Street">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" MaxLength="17" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Abbreviation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Spr_TreatmentOutcome">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="400" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MedCards" Relationship="Self.FK_MedCard_Spr_TreatmentOutcome" FromRole="Spr_TreatmentOutcome" ToRole="MedCard" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="32" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="FName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Birthdate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="ChangesOfPaymentTypes" Relationship="Self.FK_ChangesOfPaymentType_User" FromRole="User" ToRole="ChangesOfPaymentType" />
+          <NavigationProperty Name="Spr_Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Spr_Role" />
+        </EntityType>
+        <Association Name="FK_ChangesOfPaymentType_MedCard">
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="1" />
+          <End Role="ChangesOfPaymentType" Type="Self.ChangesOfPaymentType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedCard">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ChangesOfPaymentType">
+              <PropertyRef Name="CardID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChangesOfPaymentType_Spr_NewPaymentType">
+          <End Role="Spr_PaymentType" Type="Self.Spr_PaymentType" Multiplicity="1" />
+          <End Role="ChangesOfPaymentType" Type="Self.ChangesOfPaymentType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_PaymentType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ChangesOfPaymentType">
+              <PropertyRef Name="NewPaymentTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChangesOfPaymentType_Spr_OldPaymentType">
+          <End Role="Spr_PaymentType" Type="Self.Spr_PaymentType" Multiplicity="1" />
+          <End Role="ChangesOfPaymentType" Type="Self.ChangesOfPaymentType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_PaymentType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ChangesOfPaymentType">
+              <PropertyRef Name="OldPaymentTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChangesOfPaymentType_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="ChangesOfPaymentType" Type="Self.ChangesOfPaymentType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ChangesOfPaymentType">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Death_AutopsyType">
+          <End Role="Spr_AutopsyType" Type="Self.Spr_AutopsyType" Multiplicity="0..1" />
+          <End Role="Death" Type="Self.Death" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_AutopsyType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Death">
+              <PropertyRef Name="AutopsyTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Death_MedCard">
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Death" Type="Self.Death" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="MedCard">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Death">
+              <PropertyRef Name="CardID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_Country">
+          <End Role="Spr_Country" Type="Self.Spr_Country" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_Country">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="CountryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_DeliveryPeriod">
+          <End Role="Spr_DeliveryPeriod" Type="Self.Spr_DeliveryPeriod" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_DeliveryPeriod">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="DeliveryPeriodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_DeliveryType">
+          <End Role="Spr_DeliveryType" Type="Self.Spr_DeliveryType" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_DeliveryType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="DeliveryTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_Denial">
+          <End Role="Spr_Denial" Type="Self.Spr_Denial" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_Denial">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="DenialID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_DepartmentDischarge">
+          <End Role="Spr_Department" Type="Self.Spr_Department" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_Department">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="DepartmentID_Discharge" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_DepartmentReceipt">
+          <End Role="Spr_Department" Type="Self.Spr_Department" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_Department">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="DepartmentID_Receipt" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_DiagnosisDischarge">
+          <End Role="Spr_Diagnosis" Type="Self.Spr_Diagnosis" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_Diagnosis">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="DiagnosisCode_Discharge" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_DiagnosisLPU">
+          <End Role="Spr_Diagnosis" Type="Self.Spr_Diagnosis" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_Diagnosis">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="DiagnosisCode_LPU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_DiagnosisPO">
+          <End Role="Spr_Diagnosis" Type="Self.Spr_Diagnosis" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_Diagnosis">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="DiagnosisCode_PO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_DocumentType">
+          <End Role="Spr_DocumentType" Type="Self.Spr_DocumentType" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_DocumentType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="DocumentTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_Gender">
+          <End Role="Spr_Gender" Type="Self.Spr_Gender" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_Gender">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="GenderCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_HospitaliztionType">
+          <End Role="Spr_HospitalizationType" Type="Self.Spr_HospitalizationType" Multiplicity="1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_HospitalizationType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="HospitalizationTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_InjuryType">
+          <End Role="Spr_InjuryType" Type="Self.Spr_InjuryType" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_InjuryType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="InjuryTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_KLADR">
+          <End Role="Spr_KLADR" Type="Self.Spr_KLADR" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_KLADR">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="KLADR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_PaymentType">
+          <End Role="Spr_PaymentType" Type="Self.Spr_PaymentType" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_PaymentType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="PaymentTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_SendingOrganisation">
+          <End Role="Spr_SendingOrganisation" Type="Self.Spr_SendingOrganisation" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_SendingOrganisation">
+              <PropertyRef Name="Code" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="SendingOrdanisationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_SignOfDischarge">
+          <End Role="Spr_SignOfDischarge" Type="Self.Spr_SignOfDischarge" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_SignOfDischarge">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="SignOfDischargeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_SignOfResidence">
+          <End Role="Spr_SignOfResidence" Type="Self.Spr_SignOfResidence" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_SignOfResidence">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="SignOfResidenceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_SocialStatus">
+          <End Role="Spr_SocialStatus" Type="Self.Spr_SocialStatus" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_SocialStatus">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="SocialStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MedCard_Spr_TreatmentOutcome">
+          <End Role="Spr_TreatmentOutcome" Type="Self.Spr_TreatmentOutcome" Multiplicity="0..1" />
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_TreatmentOutcome">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MedCard">
+              <PropertyRef Name="TreatmentOutcomeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PatientMovement_MedCard">
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PatientMovement" Type="Self.PatientMovement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MedCard">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PatientMovement">
+              <PropertyRef Name="CardID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PatientMovement_Spr_Department">
+          <End Role="Spr_Department" Type="Self.Spr_Department" Multiplicity="1" />
+          <End Role="PatientMovement" Type="Self.PatientMovement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_Department">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PatientMovement">
+              <PropertyRef Name="DepartmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PatientMovement_Spr_SignOfDischarge">
+          <End Role="Spr_SignOfDischarge" Type="Self.Spr_SignOfDischarge" Multiplicity="1" />
+          <End Role="PatientMovement" Type="Self.PatientMovement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_SignOfDischarge">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PatientMovement">
+              <PropertyRef Name="SignOfDischargeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Role">
+          <End Role="Spr_Role" Type="Self.Spr_Role" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spr_Role">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BenefitsOfPatients">
+          <End Role="MedCard" Type="Self.MedCard" Multiplicity="*" />
+          <End Role="Spr_Benefit" Type="Self.Spr_Benefit" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="MedPlusDB_Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ChangesOfPaymentTypes" EntityType="Self.ChangesOfPaymentType" />
+          <EntitySet Name="Deaths" EntityType="Self.Death" />
+          <EntitySet Name="MedCards" EntityType="Self.MedCard" />
+          <EntitySet Name="PatientMovements" EntityType="Self.PatientMovement" />
+          <EntitySet Name="Spr_AutopsyType" EntityType="Self.Spr_AutopsyType" />
+          <EntitySet Name="Spr_Benefit" EntityType="Self.Spr_Benefit" />
+          <EntitySet Name="Spr_Country" EntityType="Self.Spr_Country" />
+          <EntitySet Name="Spr_DeliveryPeriod" EntityType="Self.Spr_DeliveryPeriod" />
+          <EntitySet Name="Spr_DeliveryType" EntityType="Self.Spr_DeliveryType" />
+          <EntitySet Name="Spr_Denial" EntityType="Self.Spr_Denial" />
+          <EntitySet Name="Spr_Department" EntityType="Self.Spr_Department" />
+          <EntitySet Name="Spr_Diagnosis" EntityType="Self.Spr_Diagnosis" />
+          <EntitySet Name="Spr_DocumentType" EntityType="Self.Spr_DocumentType" />
+          <EntitySet Name="Spr_Gender" EntityType="Self.Spr_Gender" />
+          <EntitySet Name="Spr_HospitalizationType" EntityType="Self.Spr_HospitalizationType" />
+          <EntitySet Name="Spr_InjuryType" EntityType="Self.Spr_InjuryType" />
+          <EntitySet Name="Spr_KLADR" EntityType="Self.Spr_KLADR" />
+          <EntitySet Name="Spr_PaymentType" EntityType="Self.Spr_PaymentType" />
+          <EntitySet Name="Spr_Role" EntityType="Self.Spr_Role" />
+          <EntitySet Name="Spr_SendingOrganisation" EntityType="Self.Spr_SendingOrganisation" />
+          <EntitySet Name="Spr_SignOfDischarge" EntityType="Self.Spr_SignOfDischarge" />
+          <EntitySet Name="Spr_SignOfResidence" EntityType="Self.Spr_SignOfResidence" />
+          <EntitySet Name="Spr_SocialStatus" EntityType="Self.Spr_SocialStatus" />
+          <EntitySet Name="Spr_Street" EntityType="Self.Spr_Street" />
+          <EntitySet Name="Spr_TreatmentOutcome" EntityType="Self.Spr_TreatmentOutcome" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_ChangesOfPaymentType_MedCard" Association="Self.FK_ChangesOfPaymentType_MedCard">
+            <End Role="MedCard" EntitySet="MedCards" />
+            <End Role="ChangesOfPaymentType" EntitySet="ChangesOfPaymentTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChangesOfPaymentType_Spr_NewPaymentType" Association="Self.FK_ChangesOfPaymentType_Spr_NewPaymentType">
+            <End Role="Spr_PaymentType" EntitySet="Spr_PaymentType" />
+            <End Role="ChangesOfPaymentType" EntitySet="ChangesOfPaymentTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChangesOfPaymentType_Spr_OldPaymentType" Association="Self.FK_ChangesOfPaymentType_Spr_OldPaymentType">
+            <End Role="Spr_PaymentType" EntitySet="Spr_PaymentType" />
+            <End Role="ChangesOfPaymentType" EntitySet="ChangesOfPaymentTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChangesOfPaymentType_User" Association="Self.FK_ChangesOfPaymentType_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="ChangesOfPaymentType" EntitySet="ChangesOfPaymentTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Death_AutopsyType" Association="Self.FK_Death_AutopsyType">
+            <End Role="Spr_AutopsyType" EntitySet="Spr_AutopsyType" />
+            <End Role="Death" EntitySet="Deaths" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Death_MedCard" Association="Self.FK_Death_MedCard">
+            <End Role="MedCard" EntitySet="MedCards" />
+            <End Role="Death" EntitySet="Deaths" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_Country" Association="Self.FK_MedCard_Spr_Country">
+            <End Role="Spr_Country" EntitySet="Spr_Country" />
+            <End Role="MedCard" EntitySet="MedCards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_DeliveryPeriod" Association="Self.FK_MedCard_Spr_DeliveryPeriod">
+            <End Role="Spr_DeliveryPeriod" EntitySet="Spr_DeliveryPeriod" />
+            <End Role="MedCard" EntitySet="MedCards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_DeliveryType" Association="Self.FK_MedCard_Spr_DeliveryType">
+            <End Role="Spr_DeliveryType" EntitySet="Spr_DeliveryType" />
+            <End Role="MedCard" EntitySet="MedCards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_Denial" Association="Self.FK_MedCard_Spr_Denial">
+            <End Role="Spr_Denial" EntitySet="Spr_Denial" />
+            <End Role="MedCard" EntitySet="MedCards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_DepartmentDischarge" Association="Self.FK_MedCard_Spr_DepartmentDischarge">
+            <End Role="Spr_Department" EntitySet="Spr_Department" />
+            <End Role="MedCard" EntitySet="MedCards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_DepartmentReceipt" Association="Self.FK_MedCard_Spr_DepartmentReceipt">
+            <End Role="Spr_Department" EntitySet="Spr_Department" />
+            <End Role="MedCard" EntitySet="MedCards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_DiagnosisDischarge" Association="Self.FK_MedCard_Spr_DiagnosisDischarge">
+            <End Role="Spr_Diagnosis" EntitySet="Spr_Diagnosis" />
+            <End Role="MedCard" EntitySet="MedCards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_DiagnosisLPU" Association="Self.FK_MedCard_Spr_DiagnosisLPU">
+            <End Role="Spr_Diagnosis" EntitySet="Spr_Diagnosis" />
+            <End Role="MedCard" EntitySet="MedCards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_DiagnosisPO" Association="Self.FK_MedCard_Spr_DiagnosisPO">
+            <End Role="Spr_Diagnosis" EntitySet="Spr_Diagnosis" />
+            <End Role="MedCard" EntitySet="MedCards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_DocumentType" Association="Self.FK_MedCard_Spr_DocumentType">
+            <End Role="Spr_DocumentType" EntitySet="Spr_DocumentType" />
+            <End Role="MedCard" EntitySet="MedCards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_Gender" Association="Self.FK_MedCard_Spr_Gender">
+            <End Role="Spr_Gender" EntitySet="Spr_Gender" />
+            <End Role="MedCard" EntitySet="MedCards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_HospitaliztionType" Association="Self.FK_MedCard_Spr_HospitaliztionType">
+            <End Role="Spr_HospitalizationType" EntitySet="Spr_HospitalizationType" />
+            <End Role="MedCard" EntitySet="MedCards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_InjuryType" Association="Self.FK_MedCard_Spr_InjuryType">
+            <End Role="Spr_InjuryType" EntitySet="Spr_InjuryType" />
+            <End Role="MedCard" EntitySet="MedCards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_KLADR" Association="Self.FK_MedCard_Spr_KLADR">
+            <End Role="Spr_KLADR" EntitySet="Spr_KLADR" />
+            <End Role="MedCard" EntitySet="MedCards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_PaymentType" Association="Self.FK_MedCard_Spr_PaymentType">
+            <End Role="Spr_PaymentType" EntitySet="Spr_PaymentType" />
+            <End Role="MedCard" EntitySet="MedCards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_SendingOrganisation" Association="Self.FK_MedCard_Spr_SendingOrganisation">
+            <End Role="Spr_SendingOrganisation" EntitySet="Spr_SendingOrganisation" />
+            <End Role="MedCard" EntitySet="MedCards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_SignOfDischarge" Association="Self.FK_MedCard_Spr_SignOfDischarge">
+            <End Role="Spr_SignOfDischarge" EntitySet="Spr_SignOfDischarge" />
+            <End Role="MedCard" EntitySet="MedCards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_SignOfResidence" Association="Self.FK_MedCard_Spr_SignOfResidence">
+            <End Role="Spr_SignOfResidence" EntitySet="Spr_SignOfResidence" />
+            <End Role="MedCard" EntitySet="MedCards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_SocialStatus" Association="Self.FK_MedCard_Spr_SocialStatus">
+            <End Role="Spr_SocialStatus" EntitySet="Spr_SocialStatus" />
+            <End Role="MedCard" EntitySet="MedCards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MedCard_Spr_TreatmentOutcome" Association="Self.FK_MedCard_Spr_TreatmentOutcome">
+            <End Role="Spr_TreatmentOutcome" EntitySet="Spr_TreatmentOutcome" />
+            <End Role="MedCard" EntitySet="MedCards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PatientMovement_MedCard" Association="Self.FK_PatientMovement_MedCard">
+            <End Role="MedCard" EntitySet="MedCards" />
+            <End Role="PatientMovement" EntitySet="PatientMovements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PatientMovement_Spr_Department" Association="Self.FK_PatientMovement_Spr_Department">
+            <End Role="Spr_Department" EntitySet="Spr_Department" />
+            <End Role="PatientMovement" EntitySet="PatientMovements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PatientMovement_Spr_SignOfDischarge" Association="Self.FK_PatientMovement_Spr_SignOfDischarge">
+            <End Role="Spr_SignOfDischarge" EntitySet="Spr_SignOfDischarge" />
+            <End Role="PatientMovement" EntitySet="PatientMovements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+            <End Role="Spr_Role" EntitySet="Spr_Role" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="BenefitsOfPatients" Association="Self.BenefitsOfPatients">
+            <End Role="MedCard" EntitySet="MedCards" />
+            <End Role="Spr_Benefit" EntitySet="Spr_Benefit" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(MedPlusDB_Model.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(MedPlusDB_Model.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_ListOfAddmited" ReturnType="Collection(MedPlusDB_Model.Sp_ListOfAddmited_Result)">
+            <Parameter Name="dateBegin" Mode="In" Type="DateTime" />
+            <Parameter Name="dateEnd" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_SignalStatement" ReturnType="Collection(MedPlusDB_Model.Sp_SignalStatement_Result)">
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="Sp_ListOfAddmited_Result">
+          <Property Type="Int32" Name="CardID" Nullable="false" />
+          <Property Type="DateTime" Name="DateTimeReceipt" Nullable="true" Precision="23" />
+          <Property Type="String" Name="DepartmentName" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="LName" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="FName" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="MName" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="Sp_SignalStatement_Result">
+          <Property Type="Int32" Name="DepartmentID" Nullable="false" />
+          <Property Type="String" Name="DepartmentName" Nullable="false" MaxLength="500" />
+          <Property Type="Int32" Name="OnStart" Nullable="true" />
+          <Property Type="Int32" Name="AddmitedPatientsCount" Nullable="true" />
+          <Property Type="Int32" Name="TransferredFrom" Nullable="true" />
+          <Property Type="Int32" Name="TransferredIn" Nullable="true" />
+          <Property Type="Int32" Name="DischargedCount" Nullable="true" />
+          <Property Type="Int32" Name="DiesCount" Nullable="true" />
+          <Property Type="Int32" Name="OnEnd" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище MedPlusDB_ModelContainer" CdmEntityContainer="MedPlusDB_Entities">
+          <EntitySetMapping Name="ChangesOfPaymentTypes">
+            <EntityTypeMapping TypeName="MedPlusDB_Model.ChangesOfPaymentType">
+              <MappingFragment StoreEntitySet="ChangesOfPaymentType">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="OldPaymentTypeID" ColumnName="OldPaymentTypeID" />
+                <ScalarProperty Name="NewPaymentTypeID" ColumnName="NewPaymentTypeID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="CardID" ColumnName="CardID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Deaths">
+            <EntityTypeMapping TypeName="MedPlusDB_Model.Death">
+              <MappingFragment StoreEntitySet="Death">
+                <ScalarProperty Name="CardID" ColumnName="CardID" />
+                <ScalarProperty Name="TimeDeath" ColumnName="TimeDeath" />
+                <ScalarProperty Name="SignOfAutopsy" ColumnName="SignOfAutopsy" />
+                <ScalarProperty Name="AutopsyTypeID" ColumnName="AutopsyTypeID" />
+                <ScalarProperty Name="DiagnosisAutopsy" ColumnName="DiagnosisAutopsy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MedCards">
+            <EntityTypeMapping TypeName="MedPlusDB_Model.MedCard">
+              <MappingFragment StoreEntitySet="MedCard">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DateTimeReceipt" ColumnName="DateTimeReceipt" />
+                <ScalarProperty Name="DepartmentID_Receipt" ColumnName="DepartmentID_Receipt" />
+                <ScalarProperty Name="DepartmentID_Discharge" ColumnName="DepartmentID_Discharge" />
+                <ScalarProperty Name="DocumentTypeID" ColumnName="DocumentTypeID" />
+                <ScalarProperty Name="DocumentSeria" ColumnName="DocumentSeria" />
+                <ScalarProperty Name="DocumentNumber" ColumnName="DocumentNumber" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="MName" ColumnName="MName" />
+                <ScalarProperty Name="GenderCode" ColumnName="GenderCode" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="SignOfResidenceID" ColumnName="SignOfResidenceID" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="KLADR_ID" ColumnName="KLADR_ID" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="HouseNumber" ColumnName="HouseNumber" />
+                <ScalarProperty Name="BuildingNumber" ColumnName="BuildingNumber" />
+                <ScalarProperty Name="ApartmentNumber" ColumnName="ApartmentNumber" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="SocialStatusID" ColumnName="SocialStatusID" />
+                <ScalarProperty Name="Job" ColumnName="Job" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="PaymentTypeID" ColumnName="PaymentTypeID" />
+                <ScalarProperty Name="PolicySeria" ColumnName="PolicySeria" />
+                <ScalarProperty Name="PolicyNumber" ColumnName="PolicyNumber" />
+                <ScalarProperty Name="SNILS" ColumnName="SNILS" />
+                <ScalarProperty Name="SendingOrdanisationID" ColumnName="SendingOrdanisationID" />
+                <ScalarProperty Name="SendingDate" ColumnName="SendingDate" />
+                <ScalarProperty Name="HospitalizationTypeID" ColumnName="HospitalizationTypeID" />
+                <ScalarProperty Name="DeliveryTypeID" ColumnName="DeliveryTypeID" />
+                <ScalarProperty Name="DiagnosisCode_LPU" ColumnName="DiagnosisCode_LPU" />
+                <ScalarProperty Name="DiagnosisDescription_LPU" ColumnName="DiagnosisDescription_LPU" />
+                <ScalarProperty Name="DiagnosisCode_PO" ColumnName="DiagnosisCode_PO" />
+                <ScalarProperty Name="DiagnosisDescription_PO" ColumnName="DiagnosisDescription_PO" />
+                <ScalarProperty Name="IsRepeated" ColumnName="IsRepeated" />
+                <ScalarProperty Name="InjuryTypeID" ColumnName="InjuryTypeID" />
+                <ScalarProperty Name="DeliveryPeriodID" ColumnName="DeliveryPeriodID" />
+                <ScalarProperty Name="DateTimeDischarge" ColumnName="DateTimeDischarge" />
+                <ScalarProperty Name="SignOfDischargeID" ColumnName="SignOfDischargeID" />
+                <ScalarProperty Name="DiagnosisCode_Discharge" ColumnName="DiagnosisCode_Discharge" />
+                <ScalarProperty Name="TreatmentOutcomeID" ColumnName="TreatmentOutcomeID" />
+                <ScalarProperty Name="DenialID" ColumnName="DenialID" />
+                <ScalarProperty Name="BrigadeNumber" ColumnName="BrigadeNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PatientMovements">
+            <EntityTypeMapping TypeName="MedPlusDB_Model.PatientMovement">
+              <MappingFragment StoreEntitySet="PatientMovement">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SignOfDischargeID" ColumnName="SignOfDischargeID" />
+                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+                <ScalarProperty Name="DateTimeReceipt" ColumnName="DateTimeReceipt" />
+                <ScalarProperty Name="DateTimeDischarge" ColumnName="DateTimeDischarge" />
+                <ScalarProperty Name="CardID" ColumnName="CardID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spr_AutopsyType">
+            <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_AutopsyType">
+              <MappingFragment StoreEntitySet="Spr_AutopsyType">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spr_Benefit">
+            <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_Benefit">
+              <MappingFragment StoreEntitySet="Spr_Benefit">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spr_Country">
+            <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_Country">
+              <MappingFragment StoreEntitySet="Spr_Country">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spr_DeliveryPeriod">
+            <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_DeliveryPeriod">
+              <MappingFragment StoreEntitySet="Spr_DeliveryPeriod">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spr_DeliveryType">
+            <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_DeliveryType">
+              <MappingFragment StoreEntitySet="Spr_DeliveryType">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spr_Denial">
+            <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_Denial">
+              <MappingFragment StoreEntitySet="Spr_Denial">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spr_Department">
+            <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_Department">
+              <MappingFragment StoreEntitySet="Spr_Department">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Beds" ColumnName="Beds" />
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+                <ScalarProperty Name="IsDayDepartment" ColumnName="IsDayDepartment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spr_Diagnosis">
+            <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_Diagnosis">
+              <MappingFragment StoreEntitySet="Spr_Diagnosis">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spr_DocumentType">
+            <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_DocumentType">
+              <MappingFragment StoreEntitySet="Spr_DocumentType">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spr_Gender">
+            <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_Gender">
+              <MappingFragment StoreEntitySet="Spr_Gender">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spr_HospitalizationType">
+            <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_HospitalizationType">
+              <MappingFragment StoreEntitySet="Spr_HospitalizationType">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spr_InjuryType">
+            <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_InjuryType">
+              <MappingFragment StoreEntitySet="Spr_InjuryType">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spr_KLADR">
+            <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_KLADR">
+              <MappingFragment StoreEntitySet="Spr_KLADR">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spr_PaymentType">
+            <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_PaymentType">
+              <MappingFragment StoreEntitySet="Spr_PaymentType">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spr_Role">
+            <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_Role">
+              <MappingFragment StoreEntitySet="Spr_Role">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spr_SendingOrganisation">
+            <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_SendingOrganisation">
+              <MappingFragment StoreEntitySet="Spr_SendingOrganisation">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spr_SignOfDischarge">
+            <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_SignOfDischarge">
+              <MappingFragment StoreEntitySet="Spr_SignOfDischarge">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spr_SignOfResidence">
+            <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_SignOfResidence">
+              <MappingFragment StoreEntitySet="Spr_SignOfResidence">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spr_SocialStatus">
+            <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_SocialStatus">
+              <MappingFragment StoreEntitySet="Spr_SocialStatus">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spr_Street">
+            <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_Street">
+              <MappingFragment StoreEntitySet="Spr_Street">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spr_TreatmentOutcome">
+            <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_TreatmentOutcome">
+              <MappingFragment StoreEntitySet="Spr_TreatmentOutcome">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="MedPlusDB_Model.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="MedPlusDB_Model.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="MName" ColumnName="MName" />
+                <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="BenefitsOfPatients" TypeName="MedPlusDB_Model.BenefitsOfPatients" StoreEntitySet="BenefitsOfPatients">
+            <EndProperty Name="MedCard">
+              <ScalarProperty Name="ID" ColumnName="CardID" />
+            </EndProperty>
+            <EndProperty Name="Spr_Benefit">
+              <ScalarProperty Name="ID" ColumnName="BenefitID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище MedPlusDB_Model.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище MedPlusDB_Model.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище MedPlusDB_Model.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище MedPlusDB_Model.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MedPlusDB_Model.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище MedPlusDB_Model.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MedPlusDB_Model.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_ListOfAddmited" FunctionName="Хранилище MedPlusDB_Model.Sp_ListOfAddmited">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MedPlusDB_Model.Sp_ListOfAddmited_Result">
+                <ScalarProperty Name="CardID" ColumnName="CardID" />
+                <ScalarProperty Name="DateTimeReceipt" ColumnName="DateTimeReceipt" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="MName" ColumnName="MName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище MedPlusDB_Model.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="Sp_SignalStatement" FunctionName="Хранилище MedPlusDB_Model.Sp_SignalStatement">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MedPlusDB_Model.Sp_SignalStatement_Result">
+                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+                <ScalarProperty Name="OnStart" ColumnName="OnStart" />
+                <ScalarProperty Name="AddmitedPatientsCount" ColumnName="AddmitedPatientsCount" />
+                <ScalarProperty Name="TransferredFrom" ColumnName="TransferredFrom" />
+                <ScalarProperty Name="TransferredIn" ColumnName="TransferredIn" />
+                <ScalarProperty Name="DischargedCount" ColumnName="DischargedCount" />
+                <ScalarProperty Name="DiesCount" ColumnName="DiesCount" />
+                <ScalarProperty Name="OnEnd" ColumnName="OnEnd" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище MedPlusDB_Model.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33529.622
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedPlus", "MedPlus.csproj", "{60827475-1E84-4850-AD7C-5A62D275A00D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{40E26A69-9BBE-4F45-A5FC-E2822E80734A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedPlusLoginTests", "..\MedPlusLoginTests\MedPlusLoginTests.csproj", "{96E9650A-A77A-42A9-85EA-848CF17DB9F4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{60827475-1E84-4850-AD7C-5A62D275A00D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60827475-1E84-4850-AD7C-5A62D275A00D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60827475-1E84-4850-AD7C-5A62D275A00D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60827475-1E84-4850-AD7C-5A62D275A00D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96E9650A-A77A-42A9-85EA-848CF17DB9F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96E9650A-A77A-42A9-85EA-848CF17DB9F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96E9650A-A77A-42A9-85EA-848CF17DB9F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96E9650A-A77A-42A9-85EA-848CF17DB9F4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{96E9650A-A77A-42A9-85EA-848CF17DB9F4} = {40E26A69-9BBE-4F45-A5FC-E2822E80734A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CADE84E1-B7D3-439A-829C-E55ED56FE218}
+	EndGlobalSection
+EndGlobal

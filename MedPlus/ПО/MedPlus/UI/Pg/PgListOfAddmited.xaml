@@ -1,0 +1,39 @@
+﻿<Page x:Class="MedPlus.UI.Pg.PgListOfAddmited"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MedPlus.UI.Pg"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PgListOfAddmited">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <Button x:Name="BtnBack" Style="{StaticResource BtnBlack}" Width="200" HorizontalAlignment="Left" Click="BtnBack_Click">Назад</Button>
+        <Button x:Name="BtnGenerate" Style="{StaticResource BtnWhite}" Width="200" Click="BtnGenerate_Click" HorizontalAlignment="Right">Сформировать</Button>
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <Label FontSize="25" Margin="10">С</Label>
+            <DatePicker x:Name="DtpkDateBegin" Width="200" Margin="0"></DatePicker>
+            <Label FontSize="25" Margin="40, 10, 10, 10">По</Label>
+            <DatePicker x:Name="DtpkDateEnd" Width="200" Margin="0"></DatePicker>
+        </StackPanel>
+
+        <DataGrid x:Name="DgContainer" AutoGenerateColumns="False" Grid.Row="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер карты" Binding="{Binding Path=CardID}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Дата и время поступления" Binding="{Binding Path=DateTimeReceipt}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Отделение" Binding="{Binding Path=DepartmentName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding Path=LName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Path=FName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Отчество" Binding="{Binding Path=MName}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

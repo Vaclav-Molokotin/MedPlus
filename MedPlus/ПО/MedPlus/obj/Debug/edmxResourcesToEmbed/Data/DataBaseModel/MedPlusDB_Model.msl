@@ -1,0 +1,347 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище MedPlusDB_ModelContainer" CdmEntityContainer="MedPlusDB_Entities">
+    <EntitySetMapping Name="ChangesOfPaymentTypes">
+      <EntityTypeMapping TypeName="MedPlusDB_Model.ChangesOfPaymentType">
+        <MappingFragment StoreEntitySet="ChangesOfPaymentType">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="OldPaymentTypeID" ColumnName="OldPaymentTypeID" />
+          <ScalarProperty Name="NewPaymentTypeID" ColumnName="NewPaymentTypeID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="CardID" ColumnName="CardID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Deaths">
+      <EntityTypeMapping TypeName="MedPlusDB_Model.Death">
+        <MappingFragment StoreEntitySet="Death">
+          <ScalarProperty Name="CardID" ColumnName="CardID" />
+          <ScalarProperty Name="TimeDeath" ColumnName="TimeDeath" />
+          <ScalarProperty Name="SignOfAutopsy" ColumnName="SignOfAutopsy" />
+          <ScalarProperty Name="AutopsyTypeID" ColumnName="AutopsyTypeID" />
+          <ScalarProperty Name="DiagnosisAutopsy" ColumnName="DiagnosisAutopsy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MedCards">
+      <EntityTypeMapping TypeName="MedPlusDB_Model.MedCard">
+        <MappingFragment StoreEntitySet="MedCard">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DateTimeReceipt" ColumnName="DateTimeReceipt" />
+          <ScalarProperty Name="DepartmentID_Receipt" ColumnName="DepartmentID_Receipt" />
+          <ScalarProperty Name="DepartmentID_Discharge" ColumnName="DepartmentID_Discharge" />
+          <ScalarProperty Name="DocumentTypeID" ColumnName="DocumentTypeID" />
+          <ScalarProperty Name="DocumentSeria" ColumnName="DocumentSeria" />
+          <ScalarProperty Name="DocumentNumber" ColumnName="DocumentNumber" />
+          <ScalarProperty Name="LName" ColumnName="LName" />
+          <ScalarProperty Name="FName" ColumnName="FName" />
+          <ScalarProperty Name="MName" ColumnName="MName" />
+          <ScalarProperty Name="GenderCode" ColumnName="GenderCode" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="SignOfResidenceID" ColumnName="SignOfResidenceID" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="KLADR_ID" ColumnName="KLADR_ID" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="HouseNumber" ColumnName="HouseNumber" />
+          <ScalarProperty Name="BuildingNumber" ColumnName="BuildingNumber" />
+          <ScalarProperty Name="ApartmentNumber" ColumnName="ApartmentNumber" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="SocialStatusID" ColumnName="SocialStatusID" />
+          <ScalarProperty Name="Job" ColumnName="Job" />
+          <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+          <ScalarProperty Name="PaymentTypeID" ColumnName="PaymentTypeID" />
+          <ScalarProperty Name="PolicySeria" ColumnName="PolicySeria" />
+          <ScalarProperty Name="PolicyNumber" ColumnName="PolicyNumber" />
+          <ScalarProperty Name="SNILS" ColumnName="SNILS" />
+          <ScalarProperty Name="SendingOrdanisationID" ColumnName="SendingOrdanisationID" />
+          <ScalarProperty Name="SendingDate" ColumnName="SendingDate" />
+          <ScalarProperty Name="HospitalizationTypeID" ColumnName="HospitalizationTypeID" />
+          <ScalarProperty Name="DeliveryTypeID" ColumnName="DeliveryTypeID" />
+          <ScalarProperty Name="DiagnosisCode_LPU" ColumnName="DiagnosisCode_LPU" />
+          <ScalarProperty Name="DiagnosisDescription_LPU" ColumnName="DiagnosisDescription_LPU" />
+          <ScalarProperty Name="DiagnosisCode_PO" ColumnName="DiagnosisCode_PO" />
+          <ScalarProperty Name="DiagnosisDescription_PO" ColumnName="DiagnosisDescription_PO" />
+          <ScalarProperty Name="IsRepeated" ColumnName="IsRepeated" />
+          <ScalarProperty Name="InjuryTypeID" ColumnName="InjuryTypeID" />
+          <ScalarProperty Name="DeliveryPeriodID" ColumnName="DeliveryPeriodID" />
+          <ScalarProperty Name="DateTimeDischarge" ColumnName="DateTimeDischarge" />
+          <ScalarProperty Name="SignOfDischargeID" ColumnName="SignOfDischargeID" />
+          <ScalarProperty Name="DiagnosisCode_Discharge" ColumnName="DiagnosisCode_Discharge" />
+          <ScalarProperty Name="TreatmentOutcomeID" ColumnName="TreatmentOutcomeID" />
+          <ScalarProperty Name="DenialID" ColumnName="DenialID" />
+          <ScalarProperty Name="BrigadeNumber" ColumnName="BrigadeNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PatientMovements">
+      <EntityTypeMapping TypeName="MedPlusDB_Model.PatientMovement">
+        <MappingFragment StoreEntitySet="PatientMovement">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SignOfDischargeID" ColumnName="SignOfDischargeID" />
+          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+          <ScalarProperty Name="DateTimeReceipt" ColumnName="DateTimeReceipt" />
+          <ScalarProperty Name="DateTimeDischarge" ColumnName="DateTimeDischarge" />
+          <ScalarProperty Name="CardID" ColumnName="CardID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_AutopsyType">
+      <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_AutopsyType">
+        <MappingFragment StoreEntitySet="Spr_AutopsyType">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_Benefit">
+      <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_Benefit">
+        <MappingFragment StoreEntitySet="Spr_Benefit">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_Country">
+      <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_Country">
+        <MappingFragment StoreEntitySet="Spr_Country">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_DeliveryPeriod">
+      <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_DeliveryPeriod">
+        <MappingFragment StoreEntitySet="Spr_DeliveryPeriod">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_DeliveryType">
+      <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_DeliveryType">
+        <MappingFragment StoreEntitySet="Spr_DeliveryType">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_Denial">
+      <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_Denial">
+        <MappingFragment StoreEntitySet="Spr_Denial">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_Department">
+      <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_Department">
+        <MappingFragment StoreEntitySet="Spr_Department">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Beds" ColumnName="Beds" />
+          <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+          <ScalarProperty Name="IsDayDepartment" ColumnName="IsDayDepartment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_Diagnosis">
+      <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_Diagnosis">
+        <MappingFragment StoreEntitySet="Spr_Diagnosis">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_DocumentType">
+      <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_DocumentType">
+        <MappingFragment StoreEntitySet="Spr_DocumentType">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_Gender">
+      <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_Gender">
+        <MappingFragment StoreEntitySet="Spr_Gender">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_HospitalizationType">
+      <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_HospitalizationType">
+        <MappingFragment StoreEntitySet="Spr_HospitalizationType">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_InjuryType">
+      <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_InjuryType">
+        <MappingFragment StoreEntitySet="Spr_InjuryType">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_KLADR">
+      <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_KLADR">
+        <MappingFragment StoreEntitySet="Spr_KLADR">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_PaymentType">
+      <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_PaymentType">
+        <MappingFragment StoreEntitySet="Spr_PaymentType">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_Role">
+      <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_Role">
+        <MappingFragment StoreEntitySet="Spr_Role">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_SendingOrganisation">
+      <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_SendingOrganisation">
+        <MappingFragment StoreEntitySet="Spr_SendingOrganisation">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_SignOfDischarge">
+      <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_SignOfDischarge">
+        <MappingFragment StoreEntitySet="Spr_SignOfDischarge">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_SignOfResidence">
+      <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_SignOfResidence">
+        <MappingFragment StoreEntitySet="Spr_SignOfResidence">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_SocialStatus">
+      <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_SocialStatus">
+        <MappingFragment StoreEntitySet="Spr_SocialStatus">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_Street">
+      <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_Street">
+        <MappingFragment StoreEntitySet="Spr_Street">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spr_TreatmentOutcome">
+      <EntityTypeMapping TypeName="MedPlusDB_Model.Spr_TreatmentOutcome">
+        <MappingFragment StoreEntitySet="Spr_TreatmentOutcome">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="MedPlusDB_Model.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="MedPlusDB_Model.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="FName" ColumnName="FName" />
+          <ScalarProperty Name="LName" ColumnName="LName" />
+          <ScalarProperty Name="MName" ColumnName="MName" />
+          <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="BenefitsOfPatients" TypeName="MedPlusDB_Model.BenefitsOfPatients" StoreEntitySet="BenefitsOfPatients">
+      <EndProperty Name="MedCard">
+        <ScalarProperty Name="ID" ColumnName="CardID" />
+      </EndProperty>
+      <EndProperty Name="Spr_Benefit">
+        <ScalarProperty Name="ID" ColumnName="BenefitID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище MedPlusDB_Model.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище MedPlusDB_Model.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище MedPlusDB_Model.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище MedPlusDB_Model.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MedPlusDB_Model.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище MedPlusDB_Model.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MedPlusDB_Model.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_ListOfAddmited" FunctionName="Хранилище MedPlusDB_Model.Sp_ListOfAddmited">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MedPlusDB_Model.Sp_ListOfAddmited_Result">
+          <ScalarProperty Name="CardID" ColumnName="CardID" />
+          <ScalarProperty Name="DateTimeReceipt" ColumnName="DateTimeReceipt" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="LName" ColumnName="LName" />
+          <ScalarProperty Name="FName" ColumnName="FName" />
+          <ScalarProperty Name="MName" ColumnName="MName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище MedPlusDB_Model.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="Sp_SignalStatement" FunctionName="Хранилище MedPlusDB_Model.Sp_SignalStatement">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MedPlusDB_Model.Sp_SignalStatement_Result">
+          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="OnStart" ColumnName="OnStart" />
+          <ScalarProperty Name="AddmitedPatientsCount" ColumnName="AddmitedPatientsCount" />
+          <ScalarProperty Name="TransferredFrom" ColumnName="TransferredFrom" />
+          <ScalarProperty Name="TransferredIn" ColumnName="TransferredIn" />
+          <ScalarProperty Name="DischargedCount" ColumnName="DischargedCount" />
+          <ScalarProperty Name="DiesCount" ColumnName="DiesCount" />
+          <ScalarProperty Name="OnEnd" ColumnName="OnEnd" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище MedPlusDB_Model.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

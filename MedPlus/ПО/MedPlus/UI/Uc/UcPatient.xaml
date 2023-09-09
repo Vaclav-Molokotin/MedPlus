@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="MedPlus.UI.Uc.UcPatient"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MedPlus.UI.Uc"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Border Margin="20" BorderBrush="{StaticResource AccentColor}" BorderThickness="2">
+        <StackPanel Orientation="Vertical">
+            <TextBlock Grid.Row="0" x:Name="TblFullName" Style="{StaticResource TblBase}" Margin="10" FontSize="25"></TextBlock>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>            
+            
+                <TextBlock Grid.Row="1" Style="{StaticResource TblBase}" Margin="10" HorizontalAlignment="Left">Пол:</TextBlock>
+                <TextBlock Grid.Row="2" Style="{StaticResource TblBase}" Margin="10"  HorizontalAlignment="Left">Номер карты:</TextBlock>
+                <TextBlock Grid.Row="3" Style="{StaticResource TblBase}" Margin="10"  HorizontalAlignment="Left">Дата рождения:</TextBlock>
+
+                <TextBlock Grid.Row="1" Grid.Column="1" x:Name="TblGender" Style="{StaticResource TblBase}" Margin="10" HorizontalAlignment="Left"></TextBlock>
+                <TextBlock Grid.Row="2" Grid.Column="1" x:Name="TblCardNumber" Style="{StaticResource TblBase}" Margin="10"  HorizontalAlignment="Left" Text="{Binding ID}"></TextBlock>
+                <TextBlock Grid.Row="3" Grid.Column="1" x:Name="TblBirthday" Style="{StaticResource TblBase}" Margin="10"  HorizontalAlignment="Left" Text="{Binding Birthday}"></TextBlock>
+
+            </Grid>     
+
+            <Grid>
+                <Button x:Name="BtnEdit" Style="{StaticResource BtnWhite}" Width="300" HorizontalAlignment="Left" Click="BtnEdit_Click">Редактировать</Button>
+                <Button x:Name="BtnRead" Style="{StaticResource BtnWhite}" Width="300" HorizontalAlignment="Right" Click="BtnRead_Click">Просмотреть</Button>
+            </Grid>
+        </StackPanel>
+    </Border>
+</UserControl>

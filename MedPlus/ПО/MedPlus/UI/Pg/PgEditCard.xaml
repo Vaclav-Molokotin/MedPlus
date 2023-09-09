@@ -1,0 +1,224 @@
+﻿<Page x:Class="MedPlus.UI.Pg.PgEditCard"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+      xmlns:local="clr-namespace:MedPlus.UI.Pg"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PgEditCard">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Button x:Name="BtnBack" Style="{StaticResource BtnWhite}" Width="300" HorizontalAlignment="Left" Click="BtnCancel_Click">Назад</Button>
+            <Button x:Name="BtnOpenMovements" Style="{StaticResource BtnWhite}" Width="300" HorizontalAlignment="Right" Click="BtnOpenMovements_Click">Движения пациента</Button>
+        </Grid>
+
+        <ScrollViewer Grid.Row="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="350"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="0" HorizontalAlignment="Right">Фамилия</TextBlock>
+                <TextBox x:Name="TbLName" Grid.Column="1" Grid.Row="0" Text="{Binding LName}" IsEnabled="False"></TextBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="1" HorizontalAlignment="Right">Имя</TextBlock>
+                <TextBox x:Name="TbFName" Grid.Column="1"  Grid.Row="1" Text="{Binding FName}" IsEnabled="False"></TextBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="2" HorizontalAlignment="Right">Отчество</TextBlock>
+                <TextBox x:Name="TbMName" Grid.Column="1"  Grid.Row="2" Text="{Binding MName}" IsEnabled="False"></TextBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="3" HorizontalAlignment="Right">Пол</TextBlock>
+                <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="3">
+                    <RadioButton x:Name="RbtnMale" IsChecked="True" IsEnabled="False">Мужской</RadioButton>
+                    <RadioButton x:Name="RbtnFemale" IsEnabled="False">Женский</RadioButton>
+                </StackPanel>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="4" HorizontalAlignment="Right">Тип документа</TextBlock>
+                <ComboBox x:Name="CmbxDocumentType" Grid.Column="1" Grid.Row="4" IsEnabled="False" SelectedItem="{Binding Spr_DocumentType}" DisplayMemberPath="Name"></ComboBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="5" HorizontalAlignment="Right">Серия документа</TextBlock>
+                <TextBox x:Name="TbDocumentSeria" Grid.Column="1" Grid.Row="5" IsEnabled="False" Text="{Binding DocumentSeria}"></TextBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="6" HorizontalAlignment="Right">Номер документа</TextBlock>
+                <TextBox x:Name="TbDocumentNumber" Grid.Column="1" Grid.Row="6" IsEnabled="False" Text="{Binding DocumentNumber}"></TextBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="7" HorizontalAlignment="Right">Дата рождения</TextBlock>
+                <DatePicker x:Name="DtpkBirthday" Grid.Column="1" Grid.Row="7" IsEnabled="False" SelectedDate="{Binding Birthday}"></DatePicker>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="8" HorizontalAlignment="Right">Признак жительства</TextBlock>
+                <ComboBox x:Name="CmbxSignOfResidence" Grid.Column="1" Grid.Row="8" IsEnabled="False" SelectedItem="{Binding Spr_SignOfResidence}" DisplayMemberPath="Name"></ComboBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="9" HorizontalAlignment="Right">Страна</TextBlock>
+                <ComboBox x:Name="CmbxCountry" Grid.Column="1" Grid.Row="9" IsEnabled="False" SelectedItem="{Binding Spr_Country}" IsEditable="True" DisplayMemberPath="Name"></ComboBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="10" HorizontalAlignment="Right">Регион</TextBlock>
+                <TextBox x:Name="TbRegion" Grid.Column="1" Grid.Row="10" IsEnabled="False"></TextBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="11" HorizontalAlignment="Right">Район</TextBlock>
+                <TextBox x:Name="TbArea" Grid.Column="1" Grid.Row="11" IsEnabled="False"></TextBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="12" HorizontalAlignment="Right">Город</TextBlock>
+                <TextBox x:Name="TbCity" Grid.Column="1" Grid.Row="12" IsEnabled="False"></TextBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="13" HorizontalAlignment="Right">Населённый пункт</TextBlock>
+                <TextBox x:Name="TbLocality" Grid.Column="1" Grid.Row="13" IsEnabled="False"></TextBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="14" HorizontalAlignment="Right">Улица</TextBlock>
+                <TextBox x:Name="TbStreet" Grid.Column="1" Grid.Row="14" Text="{Binding Street}" IsEnabled="False"></TextBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="15" HorizontalAlignment="Right">Номер дома</TextBlock>
+                <TextBox x:Name="TbHouseNumber" Grid.Column="1" Grid.Row="15" Text="{Binding HouseNumber}" IsEnabled="False"></TextBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="16" HorizontalAlignment="Right">Корпус</TextBlock>
+                <TextBox x:Name="TbBuildingNumber" Grid.Column="1" Grid.Row="16" Text="{Binding BuildingNumber}" IsEnabled="False"></TextBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="17" HorizontalAlignment="Right">Квартира</TextBlock>
+                <TextBox x:Name="TbApartmentNumber" Grid.Column="1" Grid.Row="17" Text="{Binding ApartmentNumber}" IsEnabled="False"></TextBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="18" HorizontalAlignment="Right">Телефон</TextBlock>
+                <TextBox x:Name="TbPhone" Grid.Column="1" Grid.Row="18" Text="{Binding Phone}" MaxLength="14" IsEnabled="False"></TextBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="19" HorizontalAlignment="Right">Социальный статус</TextBlock>
+                <ComboBox x:Name="CmbxSocialStatus" Grid.Column="1" Grid.Row="19" IsEnabled="False" IsEditable="True" DisplayMemberPath="Name" SelectedItem="{Binding Spr_SocialStatus}"></ComboBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="20" HorizontalAlignment="Right">Место работы</TextBlock>
+                <TextBox x:Name="TbJob" Grid.Column="1" Grid.Row="20" Text="{Binding Job}" IsEnabled="False"></TextBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="21" HorizontalAlignment="Right">Должность</TextBlock>
+                <TextBox x:Name="TbJobTitle" Grid.Column="1" Grid.Row="21" Text="{Binding JobTitle}" IsEnabled="False"></TextBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="22" HorizontalAlignment="Right">Вид госпитализации</TextBlock>
+                <ComboBox x:Name="CmbxHospitalizationType" Grid.Column="1" Grid.Row="22" IsEnabled="False" SelectedItem="{Binding Spr_HospitaliztionType}"  DisplayMemberPath="Name"></ComboBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="23" HorizontalAlignment="Right">Вид оплаты</TextBlock>
+                <ComboBox x:Name="CmbxPaymentType" Grid.Column="1" Grid.Row="23" IsEnabled="False" SelectedItem="{Binding Spr_PaymentType}" IsEditable="True" DisplayMemberPath="Name"></ComboBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="24" HorizontalAlignment="Right">Серия полиса</TextBlock>
+                <TextBox x:Name="TbPolicySeria" Grid.Column="1" Grid.Row="24" IsEnabled="False" Text="{Binding PolicySeria}" MaxLength="5"></TextBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="25" HorizontalAlignment="Right">Номер полиса</TextBlock>
+                <TextBox x:Name="TbPolicyNumber" Grid.Column="1" Grid.Row="25" IsEnabled="False" Text="{Binding PolicyNumber}" MaxLength="16"></TextBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="26" HorizontalAlignment="Right">СНИЛС</TextBlock>
+                <TextBox x:Name="TbSNILS" Grid.Column="1" Grid.Row="26" IsEnabled="False" Text="{Binding SNILS}" MaxLength="11"></TextBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="27" HorizontalAlignment="Right">Направитель</TextBlock>
+                <ComboBox x:Name="CmbxLPU" Grid.Column="1" Grid.Row="27" IsEnabled="False" IsEditable="True" DisplayMemberPath="Name" SelectedItem="{Binding Spr_SendingOrganisation}"></ComboBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="28" HorizontalAlignment="Right">Дата направления</TextBlock>
+                <DatePicker x:Name="DtpkSendingDate" Grid.Column="1" Grid.Row="28" SelectedDate="{Binding SendingDate}"></DatePicker>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="29" HorizontalAlignment="Right">Кем доставлен</TextBlock>
+                <ComboBox x:Name="CmbxDeliveryType" Grid.Column="1" Grid.Row="29" IsEnabled="False" IsEditable="True" SelectedItem="{Binding Spr_DeliveryType}" DisplayMemberPath="Name"></ComboBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="30" HorizontalAlignment="Right">Номер бригады</TextBlock>
+                <TextBox x:Name="TbBrigadeNumber" Grid.Column="1" Grid.Row="30" IsEnabled="False" Text="{Binding BrigadeNumber}"></TextBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="31" HorizontalAlignment="Right">Диагноз направителя</TextBlock>
+                <ComboBox x:Name="CmbxDiagnosisLPU" Grid.Column="1" Grid.Row="31" IsEnabled="False" IsEditable="True" DisplayMemberPath="Name" SelectedItem="{Binding Spr_Diagnosis2}"></ComboBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="32" HorizontalAlignment="Right">Описание диагноза направителя</TextBlock>
+                <TextBox x:Name="TbDiagnosisDescriptionLPU" Grid.Column="1" Grid.Row="32" IsEnabled="False" Text="{Binding DiagnosisDescription_LPU}"></TextBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="33" HorizontalAlignment="Right">Диагноз приёмного отделения</TextBlock>
+                <ComboBox x:Name="CmbxDiagnosisPO" Grid.Column="1" Grid.Row="33" IsEnabled="False" IsEditable="True" SelectedItem="{Binding Spr_Diagnosis}" DisplayMemberPath="Name"></ComboBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="34" HorizontalAlignment="Right">Описание диагноза приёмного отделения</TextBlock>
+                <TextBox x:Name="TbDiagnosisDescriptionPO" Grid.Column="1" Grid.Row="34" IsEnabled="False" Text="{Binding DiagnosisDescription_PO}"></TextBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="35" HorizontalAlignment="Right">Повторная госпитализация</TextBlock>
+                <CheckBox x:Name="ChbxIsRepeated" Grid.Column="1" Grid.Row="35" IsEnabled="False"></CheckBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="36" HorizontalAlignment="Right">Вид травмы</TextBlock>
+                <ComboBox x:Name="CmbxInjuryType" Grid.Column="1" Grid.Row="36" IsEnabled="False" IsEditable="True" DisplayMemberPath="Name" SelectedItem="{Binding Spr_InjuryType}"></ComboBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="37" HorizontalAlignment="Right">Период доставки</TextBlock>
+                <ComboBox x:Name="CmbxDeliveryPeriod" Grid.Column="1" Grid.Row="37" IsEnabled="False" IsEditable="True" DisplayMemberPath="Name" SelectedItem="{Binding Spr_DeliveryPeriod}"></ComboBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="38" HorizontalAlignment="Right">Дата и время выписки</TextBlock>
+                <xctk:DateTimePicker x:Name="DtpkDateTimeDischarge" Grid.Column="1" IsEnabled="False" Grid.Row="38" Text="{Binding DateTimeDischarge}"></xctk:DateTimePicker>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="39" HorizontalAlignment="Right">Признак выписки</TextBlock>
+                <ComboBox x:Name="CmbxSignOfDischarge" Grid.Column="1" Grid.Row="39" IsEnabled="False" DisplayMemberPath="Name" SelectedItem="{Binding Spr_SignOfDischarge}"></ComboBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="40" HorizontalAlignment="Right">Диагноз выписки</TextBlock>
+                <ComboBox x:Name="CmbxDiagnosisDischarge" Grid.Column="1" Grid.Row="40" IsEnabled="False" DisplayMemberPath="Name" IsEditable="True" SelectedItem="{Binding Spr_Diagnosis1}"></ComboBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="41" HorizontalAlignment="Right">Исход лечения</TextBlock>
+                <ComboBox x:Name="CmbxTreatmentOutcome" Grid.Column="1" Grid.Row="41" IsEnabled="False" DisplayMemberPath="Name" SelectedItem="{Binding Spr_TreatmentOutcome}"></ComboBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="42" HorizontalAlignment="Right">Причина отказа</TextBlock>
+                <ComboBox x:Name="CmbxDenial" Grid.Column="1" Grid.Row="42" DisplayMemberPath="Name" IsEnabled="False" SelectedItem="{Binding Spr_Denial}"></ComboBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="43" HorizontalAlignment="Right">Отделение поступления</TextBlock>
+                <ComboBox x:Name="CmbxDepartmentRecient" Grid.Column="1" Grid.Row="43" DisplayMemberPath="Name" SelectedItem="{Binding Spr_Department1}"></ComboBox>
+
+                <TextBlock Style="{StaticResource TblBase}" Grid.Row="44" HorizontalAlignment="Right">Отделение выписки</TextBlock>
+                <ComboBox x:Name="CmbxDepartmentDischarge" Grid.Column="1" Grid.Row="44" DisplayMemberPath="Name" SelectedItem="{Binding Spr_Department}"></ComboBox>
+
+            </Grid>
+        </ScrollViewer>
+
+        <Grid Grid.Row="2">
+            <Button x:Name="BtnSave" Style="{StaticResource BtnBlack}" Click="BtnSave_Click" HorizontalAlignment="Left">Сохранить</Button>
+            <Button x:Name="BtnCancel" Style="{StaticResource BtnWhite}" Click="BtnCancel_Click" HorizontalAlignment="Right">Отмена</Button>
+        </Grid>
+    </Grid>
+</Page>

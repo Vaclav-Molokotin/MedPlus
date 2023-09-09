@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="MedPlus.UI.Uc.UcPatientMovement"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MedPlus.UI.Uc"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Border BorderThickness="2" BorderBrush="Black">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock HorizontalAlignment="Right" Style="{StaticResource TblBase}">Номер карты</TextBlock>
+            <TextBlock Grid.Column="1" Style="{StaticResource TblBase}" HorizontalAlignment="Left" Text="{Binding CardID}"></TextBlock>
+
+            <TextBlock HorizontalAlignment="Right" Grid.Row="1" Style="{StaticResource TblBase}">Отделение</TextBlock>
+            <ComboBox x:Name="CmbxDepartment" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" SelectedItem="{Binding Spr_Department}" DisplayMemberPath="Name"></ComboBox>
+
+            <TextBlock HorizontalAlignment="Right" Grid.Row="2" Style="{StaticResource TblBase}">Дата время перевода</TextBlock>
+            <TextBlock HorizontalAlignment="Left" Grid.Column="1" Grid.Row="2" Style="{StaticResource TblBase}" Text="{Binding DateTimeReceipt}"></TextBlock>
+        
+            <TextBlock HorizontalAlignment="Right" Grid.Row="3" Style="{StaticResource TblBase}">Дата время выписки</TextBlock>
+            <xctk:DateTimePicker x:Name="DtpkDischarge" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" Value="{Binding DateTimeDischarge}"></xctk:DateTimePicker>
+
+            <TextBlock HorizontalAlignment="Right" Grid.Row="4" Style="{StaticResource TblBase}">Признак выписки</TextBlock>
+            <ComboBox x:Name="CmbxDischarge" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" SelectedItem="{Binding Spr_SignOfDischarge}" DisplayMemberPath="Name"></ComboBox>
+        </Grid>
+    </Border>
+</UserControl>

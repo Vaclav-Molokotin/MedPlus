@@ -1,0 +1,25 @@
+﻿<Page x:Class="MedPlus.UI.Pg.PgPatientMovements"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MedPlus.UI.Pg"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PgPatientMovements">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+
+        <Button x:Name="BtnBack" Style="{StaticResource BtnWhite}" Width="200" HorizontalAlignment="Left" Click="BtnBack_Click">Назад</Button>
+        <Button x:Name="BtnSaveChanges" Style="{StaticResource BtnBlack}" Width="200" HorizontalAlignment="Right" Click="BtnSaveChanges_Click">Сохранить изменения</Button>
+
+        <Button x:Name="BtnAdd" Style="{StaticResource BtnWhite}" Grid.Row="2" Width="200" HorizontalAlignment="Left" Click="BtnAdd_Click">Добавить</Button>
+        <Button x:Name="BtnDeleteLast" Style="{StaticResource BtnWhite}" Grid.Row="2" Width="200" HorizontalAlignment="Right" Click="BtnDeleteLast_Click">Удалить последнее</Button>
+        <StackPanel x:Name="SpContainer" Grid.Row="1"></StackPanel>
+    </Grid>
+</Page>
